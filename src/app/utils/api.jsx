@@ -1,8 +1,8 @@
-import Fetch from 'whatwg-fetch';
+var Fetch = require('whatwg-fetch');
 var rootUrl = 'https://api.imgur.com/3/';
 var apiKey = '4bb380e4df4fb2c';
 
-class Api extends React.Component {
+module.exports = window.api = {
   get: function(url) {
     return fetch(rootUrl + url, {
       headers: {
@@ -14,5 +14,3 @@ class Api extends React.Component {
     })
   }
 };
-
-export default Api;

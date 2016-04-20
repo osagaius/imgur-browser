@@ -13,6 +13,7 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Api from '../utils/api';
 
 const buttonStyle = {
 	margin: 12
@@ -25,11 +26,16 @@ const buttonGroupStyle = {
 module.exports = React.createClass({
 	getInitialState() {
 		return {
-			topics: [{name :'Blah'}, {name :'Blase'}, {name :'GooGoo'},]
+			topics: []
 		}
 	},
 	componentWillMount () {
-
+		Api.get('topics/defaults')
+    .then(function (json) {
+      this.setState({
+				topics: json.data
+			});
+    }.bind(this));
 	},
 	render() {
 		return  <AppBar
@@ -79,8 +85,6 @@ module.exports = React.createClass({
 					></AppBar>
 			},
 			renderTopics() {
-				console.log("render topics", this.state.topics);
-				console.log(this.state.topics);
 				return this.state.topics.slice(0, 4).map(function(topic) {
 					return <RaisedButton
 						style={{
