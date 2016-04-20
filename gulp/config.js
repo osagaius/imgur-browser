@@ -27,6 +27,6 @@ module.exports = {
       dest: dest,
       outputName: 'app.js'
     }],
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
   }
 };
