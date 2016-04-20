@@ -87,12 +87,13 @@ module.exports = React.createClass({
 			renderTopics() {
 				return this.state.topics.slice(0, 4).map(function(topic) {
 					return <RaisedButton
+						key={topic.id}
 						style={{
 						position:'relative',
 						transition: '.5s ease',
-						marginRight: '12',
+						marginRight: 12,
 						top: '50%',
-						bottom: '9',
+						bottom: 9,
 						padding: 0,
 					}}
 					label={topic.name}/>
