@@ -46,20 +46,9 @@ module.exports = React.createClass({
 						display: 'inline-block',
 						clear:'left'
 					}}>
-					<IconMenu
-						iconButtonElement={
-							<span>
-								{this.renderTopics()}
-								</span>
-							}
-							targetOrigin={{horizontal: 'right', vertical: 'top'}}
-							anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-							>
-							{this.renderTopics()}
-
-							<MenuItem primaryText="Help" />
-							<MenuItem primaryText="Sign out" />
-						</IconMenu>
+					<span>
+						{this.renderTopics()}
+						</span>
 						<IconMenu
 							iconButtonElement={
 								<span>
@@ -96,6 +85,8 @@ module.exports = React.createClass({
 						bottom: 9,
 						padding: 0,
 					}}
+					href={'topics/' + topic.id}
+					linkButton={true}
 					label={topic.name}/>
 				})
 			}
